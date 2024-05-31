@@ -13,10 +13,20 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
-    - name: Super-Linter
-      uses: super-linter/super-linter@v5.7.2
-      env:
+    - name: Vale
+      uses: errata-ai/vale-action@1.4.2
+      with:
+        debug: true
+        styles: 
+          https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
+          https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        OUTPUT_FOLDER: Reports
-        OUTPUT_DETAILS: detailed
-          
+
+        StylesPath = .github/styles
+        MinAlertLevel - warning
+
+        [formats]
+        Markdown = markdown
+
+        [*.md]
+        BasedOnStyles = write-good, Microsoft
