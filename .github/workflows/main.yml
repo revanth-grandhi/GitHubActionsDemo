@@ -21,12 +21,3 @@ jobs:
           https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
           https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-        StylesPath = .github/styles
-        MinAlertLevel - warning
-
-        [formats]
-        Markdown = markdown
-
-        [*.md]
-        BasedOnStyles = write-good, Microsoft
